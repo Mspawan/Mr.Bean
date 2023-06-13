@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="bean.jpg" style="position: absolute;left:210px; top: 50px; height: 500px">
+    <div class="eyes">
+        <div class="eye">
+            <div class="ball">
+
+            </div>
+        </div>
+        <div class="eye">
+            <div class="ball">
+
+            </div>
+        </div>
+    </div>
+    <script src="bean.js"></script>
+</body>
+
+</html>
+
+
+<style>
+    body {
+        text-align: center;
+    }
+    
+    .eyes {
+        position: absolute;
+        top: 60%;
+        left: 17%;
+        transform: translateY(-50%);
+        width: 100%;
+        text-align: center;
+    }
+    
+    .eye {
+        width: 60px;
+        height: 65px;
+        background: #fff;
+        display: inline-block;
+        margin: 29px;
+        border: 5px solid#000;
+        border-radius: 50%;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .ball {
+        width: 20px;
+        height: 20px;
+        background: #000;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+    }
+</style>
+<script>
+    const balls = document.getElementsByClassName("ball");
+    document.onmousemove = (a) => {
+        const x = (a.clientX * 100) / window.innerWidth + '%';
+        const y = (a.clientY * 100) / window.innerHeight + '%';
+        for (i = 0; i < 100; i++) {
+            balls[i].style.left = x;
+            balls[i].style.top = y;
+            balls[i].transform = 'translate(-' + x + ',-' + y + ')';
+        }
+    }
+</script>
